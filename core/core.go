@@ -27,7 +27,7 @@ import (
 )
 
 type Processer interface {
-	Process(req []byte) ([]byte, error)
+	Process(request []byte) ([]byte, error)
 }
 
 type Process struct {
@@ -76,5 +76,5 @@ func (p *ProcessServer) Process(ctx context.Context, req *core.Request) (*core.R
 }
 
 func (p *Process) Process(req []byte) ([]byte, error) {
-	return []byte(fmt.Sprintf("%s%s", req, "richzhao")), nil
+	return []byte(fmt.Sprintf("Plugin>> %s <<Plugin by %s", req, "richzhao")), nil
 }

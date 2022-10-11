@@ -18,6 +18,8 @@ package main
 
 import (
 	"fmt"
+	"io/ioutil"
+	"log"
 	"os"
 	"os/exec"
 
@@ -26,6 +28,9 @@ import (
 )
 
 func main() {
+
+	log.SetOutput(ioutil.Discard)
+
 	client := plugin.NewClient(&plugin.ClientConfig{
 		HandshakeConfig: core.HandshakeConfig,
 		Plugins:         core.PluginMap,
