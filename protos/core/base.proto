@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+option go_package = "github.com/bytehubplus/plugin/protos/core";
+
+package base;
+
+message Request {
+    bytes request = 1;
+}
+
+message Response {
+    bytes response = 1;
+}
+
+message Empty {}
+
+service Base {
+    rpc Process(Request) returns (Response);
+}
